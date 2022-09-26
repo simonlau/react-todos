@@ -1,8 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Todos from "./routes/Todos";
+
 function App() {
   return (
-    <div className="App">
-      <h1>React Todos</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Todos />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

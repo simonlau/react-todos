@@ -1,5 +1,6 @@
 const express = require("express");
 const { faker } = require("@faker-js/faker");
+const path = require("path");
 
 const app = express();
 const port = process.env.PORT ?? 3000;
@@ -12,6 +13,10 @@ const todos = [1, 2, 3].map(() => {
 
 app.get("/api/todos", (req, res) => {
   res.json(todos);
+});
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/dist", "index.html"));
 });
 
 app.listen(port, () => {
